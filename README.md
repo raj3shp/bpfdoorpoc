@@ -22,11 +22,11 @@ gcc client.c -o client
 ./client
 ```
 
-### Generating BPF filters
+### Generating [BPF filters](https://www.kernel.org/doc/html/latest/networking/filter.html)
 
 The filter program is in the form of instructions for a virtual machine, which are interpreted, or compiled into machine code by a just-in-time (JIT) mechanism and executed, in the kernel.
 
-Simple way to generate BPF filters for network traffic, we can use `tcpdump` with `-dd` flag
+Simple way to generate BPF filters for network traffic, use `tcpdump` with `-dd` flag
 
 ```
 tcpdump udp and dst port 53 -dd
