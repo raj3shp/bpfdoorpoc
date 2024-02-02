@@ -48,3 +48,13 @@ tcpdump udp and dst port 53 -dd
 { 0x6, 0, 0, 0x00040000 },
 { 0x6, 0, 0, 0x00000000 },
 ```
+
+### Detecting bpfdoor
+
+[chkrootkit](https://www.chkrootkit.org/) detects this malware with following trick:
+
+```
+egrep packet_recvmsg /proc/*/stack
+```
+
+It seems that `packet_recvmsg` kernel function is invoked when a process opens a raw network socket. And this is super rare to expect from a user-space process.
